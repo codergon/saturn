@@ -15,6 +15,7 @@ export default defineConfig({
       scss: {
         additionalData: `
           @import "./src/scss/utils/fonts.scss";
+          @import "./src/scss/utils/mixins.scss";
         `,
       },
     },

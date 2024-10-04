@@ -1,6 +1,6 @@
 import "./home.scss";
 
-import { Check, Clover } from "@phosphor-icons/react";
+import { Check, Planet } from "@phosphor-icons/react";
 
 const Home = () => {
   return (
@@ -9,7 +9,7 @@ const Home = () => {
         <div className="content">
           <div className="content--topbar">
             <div className="logo">
-              <Clover size={24} />
+              <Planet size={24} weight="bold" />
               <p>Saturn</p>
             </div>
 

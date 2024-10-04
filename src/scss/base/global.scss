@@ -36,7 +36,7 @@ html {
   font-family: $sans;
   -webkit-text-size-adjust: 100%;
 
-  @include ipad {
+  @media (max-width: 910px) {
     font-size: 14px;
   }
 }
