@@ -1,0 +1,282 @@
+.home {
+  @include flex(column, flex-start, center, 30px);
+  width: 100%;
+  min-height: 80vh;
+  padding: calc(env(safe-area-inset-top) + 30px) 0vw
+    calc(env(safe-area-inset-bottom) + 30px);
+
+  color: #000;
+  background: #fff;
+
+  .content {
+    @include flex(column, flex-start, center, 10px);
+    width: 100%;
+    height: 100%;
+    padding: 0px 5vw;
+    max-width: 1300px;
+    position: relative;
+
+    &--topbar {
+      @include flex(row, space-between, center, 10px);
+      z-index: 2;
+      width: 100%;
+      color: #113b21;
+
+      .logo {
+        @include flex(row, flex-start, center, 6px);
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 4px;
+          object-fit: contain;
+        }
+        p {
+          line-height: 1;
+          font-size: 24px;
+          font-weight: 600;
+        }
+      }
+
+      &__block {
+        .acct-block {
+          @include flex(row, flex-start, center);
+
+          .acct-btn {
+            @include flex(row, center, center, 10px);
+            padding: 0px;
+            cursor: pointer;
+            border-radius: 100%;
+            border: 1px solid #bbb;
+            svg {
+              background: transparent;
+            }
+            img {
+              width: 28px;
+              height: 28px;
+              border-radius: 50%;
+              background: #f5f5f5;
+            }
+          }
+
+          .acct-date {
+            @include flex(column, flex-start, flex-start, 4px);
+            .main {
+              line-height: 1;
+              font-size: 18px;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+
+    &--body {
+      @include flex(column, flex-start, center, 20px);
+      flex: 1;
+      z-index: 2;
+      width: 100%;
+      padding-top: 10vh;
+
+      .main-text {
+        @include flex(column, center, center, 4px);
+        font-size: 64px;
+        margin-bottom: 20px;
+        text-align: center;
+
+        svg {
+          margin-bottom: -7px;
+        }
+
+        .main {
+          font-weight: 600;
+        }
+        .sub {
+          color: #888;
+          font-size: 24px;
+          font-weight: 600;
+        }
+      }
+
+      .subscription-plans {
+        @include flex(row, center, center, 0px 26px);
+        width: 100%;
+        color: #555;
+        flex-wrap: wrap;
+        margin-top: 30px;
+        padding-bottom: 50px;
+
+        .plan-container {
+          @include flex(column, flex-start, flex-start, 0px);
+          width: 450px;
+          max-width: 100%;
+          border-radius: 10px;
+
+          .plan-header {
+            @include flex(row, center, center, 0px);
+            width: 100%;
+            height: 40px;
+            color: #fff;
+            padding-top: 6px;
+            background: #000;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+          }
+
+          .plan {
+            @include flex(column, flex-start, flex-start, 10px);
+            width: 100%;
+            padding: 20px;
+            margin-top: 42px;
+            background: #fff;
+            border-radius: 10px;
+            border: 3px solid #ccc;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+
+            &[data-popular="true"] {
+              margin-top: 0px;
+              border-color: #000;
+              border-top-left-radius: 0;
+              border-top-right-radius: 0;
+            }
+
+            .details {
+              @include flex(column, center, center, 6px);
+              width: 100%;
+              text-align: center;
+              font-weight: 600;
+              padding: 20px 0px;
+              border-bottom: 2px solid #ccc;
+              .name {
+                color: #000;
+                font-size: 28px;
+              }
+              .price {
+                color: #000;
+                font-size: 36px;
+                margin-bottom: 6px;
+              }
+              .billed {
+                font-weight: 500;
+              }
+            }
+
+            .description {
+              width: 100%;
+              font-size: 18px;
+              padding: 20px 0px 8px;
+              span {
+                color: #000;
+                font-weight: 600;
+              }
+            }
+
+            .benefits {
+              @include flex(column, flex-start, flex-start, 10px);
+              width: 100%;
+              margin-bottom: 24px;
+              li {
+                @include flex(row, flex-start, center, 10px);
+                font-size: 18px;
+              }
+            }
+          }
+        }
+      }
+
+      .content--main {
+        @include flex(column, center, flex-start, 20px);
+        width: 450px;
+        max-width: 95%;
+        font-size: 22px;
+        color: #6a6a6a;
+
+        img {
+          max-width: 100px;
+          border-radius: 100%;
+          margin-bottom: 30px;
+          background: rgba($color: #000, $alpha: 0.02);
+        }
+
+        &__text {
+          @include flex(column, center, flex-start, 4px);
+          width: 100%;
+          font-size: 17px;
+          margin-bottom: 10px;
+          .main {
+            color: #000;
+            font-size: 34px;
+            font-weight: 500;
+            line-height: 1.4;
+          }
+          .sub {
+            color: #6a6a6a;
+          }
+        }
+
+        .username-block {
+          @include flex(row, flex-start, center, 6px);
+          width: 100%;
+          max-width: 420px;
+          border-radius: 10px;
+          border: 1px solid #ddd;
+
+          .save-btn {
+            @include flex(row, center, center, 0px);
+            padding: 0px;
+            color: #333;
+            aspect-ratio: 1;
+            font-size: 16px;
+            font-weight: 500;
+            overflow: hidden;
+            margin-right: 10px;
+            border-radius: 100%;
+            height: calc(100% - 10px);
+            background: rgba($color: #000, $alpha: 0.05);
+          }
+
+          &--input {
+            @include flex(column, flex-start, flex-start, 10px);
+            flex: 1;
+            height: 46px;
+            padding: 10px;
+            border-radius: 10px;
+            input {
+              width: 100%;
+              height: 100%;
+              border: none;
+              outline: none;
+              font-size: 16px;
+              font-weight: 500;
+              color: #6a6a6a;
+              background: #fff;
+            }
+          }
+        }
+      }
+    }
+
+    @media (max-width: 770px) {
+      &--body {
+        .main-text {
+          font-size: clamp(32px, 6vw, 60px);
+
+          .sub {
+            font-size: clamp(16px, 3vw, 20px);
+          }
+        }
+      }
+    }
+  }
+
+  .footer-img {
+    width: 100%;
+
+    left: 0px;
+    bottom: 0px;
+    position: absolute;
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+}
