@@ -1,3 +1,31 @@
+:root {
+  --neutral-1a: #1a1a1a;
+  --neutral-2a: #2a2a2a;
+  --neutral-3a: #3a3a3a;
+  --neutral-4a: #4a4a4a;
+  --neutral-5a: #5a5a5a;
+  --neutral-6a: #6a6a6a;
+  --neutral-ee: #eee;
+
+  --neutral-100: #111;
+  --neutral-200: #222;
+  --neutral-300: #333;
+  --neutral-400: #444;
+  --neutral-500: #555;
+  --neutral-600: #666;
+  --neutral-600: #666;
+  --neutral-700: #777;
+  --neutral-800: #888;
+  --neutral-900: #999;
+
+  --negative-400: #fc3737;
+  --negative-400-rgb: 252, 55, 55;
+  --negative-500: #ff5c5c;
+  --positive-500: #338846;
+  --positive-500-rbg: 51, 136, 70;
+  --positive-600: #4fbf67;
+}
+
 // borders
 $border-1: 1px solid var(--neutral-cc);
 $border-2: 1px solid var(--neutral-bb);
@@ -123,4 +151,90 @@ main {
   &[data-is-dashboard="true"] {
     @include flex_row(0px);
   }
+}
+
+// APP TOAST
+.app-toast {
+  @include flex(row, center, center, 16px);
+  width: 400px;
+  padding: 20px;
+  position: relative;
+  background: var(--white);
+  border-radius: 12px;
+  border: 1px solid var(--neutral-ee);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: -10px 5px 10px rgba(0, 0, 0, 0.05);
+
+  &[data-type="error"] {
+    .app-toast__icon {
+      color: var(--negative-400);
+      background-color: rgba($color: var(--negative-400-rgb), $alpha: 0.03);
+    }
+    .app-toast__content {
+      .main {
+        color: var(--negative-400);
+      }
+    }
+  }
+  &[data-type="success"] {
+    .app-toast__icon {
+      color: var(--positive-500);
+      background-color: rgba($color: var(--positive-500-rbg), $alpha: 0.03);
+    }
+    .app-toast__content {
+      .main {
+        color: var(--positive-500);
+      }
+    }
+  }
+
+  &__icon {
+    @include flex(row, center, center);
+    flex: none;
+    width: 60px;
+    height: 100%;
+    overflow: hidden;
+    min-height: 60px;
+    border-radius: 12px;
+    border: 1px solid var(--neutral-ee);
+    box-shadow: 0px 2px 4px rgba(var(--black-rgb), 0.05);
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__content {
+    @include flex(column, flex-start, flex-start, 4px);
+    flex: 1;
+    font-size: 15px;
+    color: var(--neutral-6a);
+
+    .main {
+      width: 100%;
+      color: var(--black);
+      font-weight: 500;
+      white-space: wrap;
+    }
+    .sub {
+      width: 100%;
+      white-space: wrap;
+    }
+  }
+
+  &__close-btn {
+    @include flex(row, center, center);
+    top: 0px;
+    right: 0px;
+    padding: 7px;
+    cursor: pointer;
+    color: var(--neutral-6a);
+    position: absolute;
+  }
+}
+
+.toast-block {
+  width: 400px;
+  right: 32px !important;
 }
